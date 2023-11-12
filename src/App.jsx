@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-//Layout
+//Layouts
 import { Sidebar } from "./Layouts/Sidebar";
 import { MainLayout } from "./Layouts/MainLayout";
 //Views
