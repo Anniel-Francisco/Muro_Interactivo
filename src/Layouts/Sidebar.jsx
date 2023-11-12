@@ -4,7 +4,7 @@ import {
   HiOutlineQuestionMarkCircle,
 } from "react-icons/hi2";
 
-import "../styles/sidebar.css";
+import "../assets/styles/sidebar.css";
 import { Link } from "react-router-dom";
 export function Sidebar() {
   return (

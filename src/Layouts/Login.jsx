@@ -5,10 +5,18 @@ export function Login() {
         <h1>Login</h1>
       </div>
 
-      <form>
-        <div></div>
-        <div></div>
-      </form>
+      <div className="form_login">
+        <form>
+          <div></div>
+          <div></div>
+        </form>
+      </div>
+      <div className="form_register">
+        <form>
+          <div></div>
+          <div></div>
+        </form>
+      </div>
     </div>
   );
 }

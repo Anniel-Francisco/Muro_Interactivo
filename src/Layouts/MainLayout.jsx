@@ -1,4 +1,4 @@
-import "../styles/mainlayout.css";
+import "../assets/styles/mainlayout.css";
 import { useLocation } from "react-router-dom";
 export function MainLayout() {
   const location = useLocation();
