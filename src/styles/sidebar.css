@@ -12,7 +12,9 @@
 }
 
 .sidebar .sidebar_item{
-     outline: none;
+          display: flex;
+          align-items: center;
+          outline: none;
           text-decoration: none;
           padding: 15px;
           color: black;
@@ -21,12 +23,6 @@
 .sidebar .sidebar_item:hover{
           color: white;
           background-color: rgb(182, 181, 181);
-
-}
-.sidebar_item{
-          display: flex;
-          align-content: center;
-          
 
 }
 
