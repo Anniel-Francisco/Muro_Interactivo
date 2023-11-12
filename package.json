@@ -13,8 +13,11 @@
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "axios": "^1.6.1",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "react-router-dom": "^6.18.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

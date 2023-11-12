@@ -1,0 +1,36 @@
+.sidebar{
+          display: flex;
+          flex-direction: column;       
+          background-color: rgb(228, 228, 228);
+          height: 100vh;
+          position: sticky;
+          top: 0;
+          width: 250px;
+          padding: 20px 10px 0 10px ;
+          font-size: 20px;
+          font-weight: 900;
+}
+
+.sidebar .sidebar_item{
+     outline: none;
+          text-decoration: none;
+          padding: 15px;
+          color: black;
+          border-radius: 10px;
+}
+.sidebar .sidebar_item:hover{
+          color: white;
+          background-color: rgb(182, 181, 181);
+
+}
+.sidebar_item{
+          display: flex;
+          align-content: center;
+          
+
+}
+
+.icono {
+          font-size: 25px;
+          margin-right: 10px;
+}
