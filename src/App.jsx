@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //Layouts
-import { Sidebar } from "./Layouts/Sidebar";
-import { MainLayout } from "./Layouts/MainLayout";
+import { Sidebar } from "./layouts/Sidebar";
+import { MainLayout } from "./layouts/MainLayout";
 //Views
 import { Discover } from "./views/Discover";
 import { Post } from "./views/Post";
