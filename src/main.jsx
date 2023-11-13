@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./index.css";
+import "animate.css";
 
 AOS.init();
 ReactDOM.createRoot(document.getElementById("root")).render(

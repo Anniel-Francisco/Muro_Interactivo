@@ -1,0 +1,23 @@
+.modal-register{
+          width: 100%; 
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: flex;
+          align-items: center;
+          height: 95vh;
+          
+          
+}
+
+
+.imported_button{
+  cursor: pointer;
+}
+.imported_button:hover{
+  text-decoration: underline; 
+}
+
+.form_register{
+          margin-top: 10px;
+}

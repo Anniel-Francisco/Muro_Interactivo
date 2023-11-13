@@ -6,6 +6,7 @@ import { MainLayout } from "./Layouts/MainLayout";
 import { Discover } from "./views/Discover";
 import { Post } from "./views/Post";
 import { Info } from "./views/Info";
+import { ErrorPage } from "./views/ErrorPage";
 function App() {
   return (
     <BrowserRouter>
@@ -21,7 +22,11 @@ function App() {
             margin: "10px",
           }}
         >
-          <div>
+          <div
+            style={{
+              width: "100%",
+            }}
+          >
             <MainLayout />
           </div>
           <div>
@@ -29,6 +34,7 @@ function App() {
               <Route path="/" element={<Discover />}></Route>
               <Route path="/post" element={<Post />}></Route>
               <Route path="/info" element={<Info />}></Route>
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
           </div>
         </div>
