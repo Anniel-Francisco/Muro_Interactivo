@@ -5,10 +5,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "./index.css";
 import "animate.css";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 AOS.init();
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </React.StrictMode>
 );

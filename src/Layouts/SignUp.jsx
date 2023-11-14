@@ -7,13 +7,13 @@ import "../assets/styles/signup.css"; // Asegúrate de importar tus estilos CSS
 
 export function SignUp() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  let nuevoUsuario = {
+  const [nuevoUsuario, setNuevoUsuario] = useState({
     nombre: "",
     apellido: "",
     correo: "",
     clave: "",
     usuario: "",
-  };
+  });
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -39,12 +39,15 @@ export function SignUp() {
         alert("Debe llenar todos los campos");
       } else {
         await UsuarioAPI.crearUsuario(nuevoUsuario).then((item) => {
-          console.log(item.message);
-          if (item.code == 200) {
-            document.getElementById("form").reset();
-            nuevoUsuario = {};
-            alert(item.message);
-          }
+          setNuevoUsuario({
+            nombre: "",
+            apellido: "",
+            correo: "",
+            clave: "",
+            usuario: "",
+          });
+          alert(item.message);
+          document.getElementById("form").reset();
         });
       }
     } catch (error) {
@@ -94,10 +97,13 @@ export function SignUp() {
                 <div className="input">
                   <input
                     type="text"
+                    value={!nuevoUsuario.usuario ? "" : nuevoUsuario.usuario}
                     placeholder="Username"
                     onChange={function (e) {
-                      nuevoUsuario.usuario = e.target.value;
-                      console.log(nuevoUsuario);
+                      setNuevoUsuario({
+                        ...nuevoUsuario,
+                        usuario: e.target.value,
+                      });
                     }}
                   />
                   <HiUserCircle className="icon" />
@@ -107,8 +113,12 @@ export function SignUp() {
                   <input
                     type="text"
                     placeholder="Name"
+                    value={!nuevoUsuario.nombre ? "" : nuevoUsuario.nombre}
                     onChange={function (e) {
-                      nuevoUsuario.nombre = e.target.value;
+                      setNuevoUsuario({
+                        ...nuevoUsuario,
+                        nombre: e.target.value,
+                      });
                     }}
                   />
                   <HiUser className="icon" />
@@ -117,9 +127,13 @@ export function SignUp() {
                 <div className="input">
                   <input
                     type="text"
+                    value={!nuevoUsuario.apellido ? "" : nuevoUsuario.apellido}
                     placeholder="Lastname"
                     onChange={function (e) {
-                      nuevoUsuario.apellido = e.target.value;
+                      setNuevoUsuario({
+                        ...nuevoUsuario,
+                        apellido: e.target.value,
+                      });
                     }}
                   />
                   <HiUsers className="icon" />
@@ -128,9 +142,13 @@ export function SignUp() {
                 <div className="input">
                   <input
                     type="email"
+                    value={!nuevoUsuario.correo ? "" : nuevoUsuario.correo}
                     placeholder="Email"
                     onChange={function (e) {
-                      nuevoUsuario.correo = e.target.value;
+                      setNuevoUsuario({
+                        ...nuevoUsuario,
+                        correo: e.target.value,
+                      });
                     }}
                   />
                   <IoMail className="icon" />
@@ -139,9 +157,13 @@ export function SignUp() {
                 <div className="input">
                   <input
                     type="password"
+                    value={!nuevoUsuario.clave ? "" : nuevoUsuario.clave}
                     placeholder="Password"
                     onChange={function (e) {
-                      nuevoUsuario.clave = e.target.value;
+                      setNuevoUsuario({
+                        ...nuevoUsuario,
+                        clave: e.target.value,
+                      });
                     }}
                   />
                   <HiKey className="icon" />

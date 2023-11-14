@@ -7,6 +7,10 @@ class UsuarioAPI {
     });
   }
 
+  loginUsuario(body) {
+    return this.axios.post("/api/login/usuario", body).then(({ data }) => data);
+  }
+
   crearUsuario(body) {
     return this.axios.post("/api/crear/usuario", body).then(({ data }) => data);
   }
