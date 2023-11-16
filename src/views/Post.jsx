@@ -1,24 +1,33 @@
 import { useState } from "react";
+import PublicacionAPI from "../api/PublicacionAPI";
 import "../assets/styles/post.css";
 export function Post() {
   const [post, setPost] = useState({
     titulo: "",
     descripcion: "",
-    imagen: "",
+    imagen: null,
   });
 
-  function fileTo64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function () {
-        return resolve(reader.result);
-      };
-      reader.onerror = function (error) {
-        return reject(error);
-      };
-    });
-  }
+  const crearPublicacion = async () => {
+    try {
+      if (!post.titulo || !post.descripcion || post.imagen == null) {
+        alert("Debe llenar todos los campos!");
+      } else {
+        await PublicacionAPI.crearPublicacion(post).then((item) => {
+          console.log(item);
+          setPost({
+            titulo: "",
+            descripcion: "",
+            imagen: null,
+          });
+          alert(item.message);
+          document.querySelector("#form").reset();
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -32,10 +41,10 @@ export function Post() {
               onChange={(e) => {
                 setPost({
                   ...post,
-                  imagen: e.target.value,
+                  imagen: { ...e.target.files[0] },
                 });
 
-                console.log(e.target.value);
+                console.log(e.target.files);
               }}
             />
           </div>
@@ -45,6 +54,7 @@ export function Post() {
             <input
               type="text"
               id="titulo"
+              value={!post.titulo ? "" : post.titulo}
               placeholder="title"
               onChange={(e) => {
                 setPost({
@@ -52,13 +62,13 @@ export function Post() {
                   titulo: e.target.value,
                 });
                 console.log(post);
-                console.log(e.target.value);
               }}
             />
           </div>
           <div>
             <textarea
               id="descripcion"
+              value={!post.descripcion ? "" : post.descripcion}
               placeholder="description"
               onChange={(e) => {
                 setPost({
@@ -66,13 +76,19 @@ export function Post() {
                   descripcion: e.target.value,
                 });
                 console.log(post);
-                console.log(e.target.value);
               }}
             />
           </div>
         </div>
         <div>
-          <button className="button_post" type="button">
+          <button
+            className="button_post"
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              crearPublicacion();
+            }}
+          >
             Publish
           </button>
         </div>

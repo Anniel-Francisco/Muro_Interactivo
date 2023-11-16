@@ -47,6 +47,7 @@ export function Login() {
         });
       }
     } catch (error) {
+      console.log(error);
       if (!error.response.data.isLoggedIn) {
         alert(error.response.data.message);
       }
