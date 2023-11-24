@@ -1,28 +1,47 @@
 import { useState } from "react";
 import PublicacionAPI from "../api/PublicacionAPI";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import "../assets/styles/post.css";
 export function Post() {
+  //VARIABLE GLOBAL
+  const stateUser = useContext(AuthContext);
+  //
+
   const [post, setPost] = useState({
     titulo: "",
     descripcion: "",
-    imagen: null,
+    file: null,
   });
 
+  const addFile = (file) => {
+    setPost({
+      ...post,
+      file: file,
+    });
+  };
   const crearPublicacion = async () => {
     try {
-      if (!post.titulo || !post.descripcion || post.imagen == null) {
-        alert("Debe llenar todos los campos!");
+      if (!stateUser.isLoggedIn) {
+        alert("No tiene usuario registrado!");
       } else {
-        await PublicacionAPI.crearPublicacion(post).then((item) => {
-          console.log(item);
-          setPost({
-            titulo: "",
-            descripcion: "",
-            imagen: null,
+        if (!post.titulo || !post.descripcion || post.file == null) {
+          alert("Debe llenar todos los campos!");
+        } else {
+          const formData = new FormData();
+          formData.append("titulo", post.titulo);
+          formData.append("descripcion", post.descripcion);
+          formData.append("file", post.file);
+          await PublicacionAPI.crearPublicacion(formData).then((item) => {
+            setPost({
+              titulo: "",
+              descripcion: "",
+              file: null,
+            });
+            alert(item.message);
+            document.querySelector("#form").reset();
           });
-          alert(item.message);
-          document.querySelector("#form").reset();
-        });
+        }
       }
     } catch (error) {
       console.log(error);
@@ -39,12 +58,7 @@ export function Post() {
               id="imagen"
               className="inputfile"
               onChange={(e) => {
-                setPost({
-                  ...post,
-                  imagen: { ...e.target.files[0] },
-                });
-
-                console.log(e.target.files);
+                addFile(e.target.files[0]);
               }}
             />
           </div>
