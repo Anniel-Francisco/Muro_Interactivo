@@ -47,6 +47,7 @@ export function SignUp() {
             usuario: "",
           });
           alert(item.message);
+          document.querySelector("#form").reset();
         });
       }
     } catch (error) {

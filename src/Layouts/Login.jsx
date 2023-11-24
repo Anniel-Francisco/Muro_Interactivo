@@ -16,7 +16,7 @@ export function Login() {
   const stateUser = useContext(AuthContext);
   //
   const [isModalOpen, setIsModalOpen] = useState(false);
-  let user = { correo: "", clave: "" };
+  let [user, setUser] = useState({ correo: "", clave: "" });
   //
   const openModal = () => {
     setIsModalOpen(true);
@@ -102,8 +102,11 @@ export function Login() {
                   <input
                     type="email"
                     placeholder="Email"
-                    onChange={function (e) {
-                      user.correo = e.target.value;
+                    onChange={(e) => {
+                      setUser({
+                        ...user,
+                        correo: e.target.value,
+                      });
                     }}
                   />
                   <IoMail className="icon" />
@@ -113,8 +116,11 @@ export function Login() {
                   <input
                     type="password"
                     placeholder="Password"
-                    onChange={function (e) {
-                      user.clave = e.target.value;
+                    onChange={(e) => {
+                      setUser({
+                        ...user,
+                        clave: e.target.value,
+                      });
                     }}
                   />
                   <HiKey className="icon" />
