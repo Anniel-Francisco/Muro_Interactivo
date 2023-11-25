@@ -39,6 +39,9 @@ function App() {
           <div
             style={{
               width: "100%",
+              position: "sticky",
+              backgroundColor: "white",
+              top: "0",
             }}
           >
             <MainLayout />
