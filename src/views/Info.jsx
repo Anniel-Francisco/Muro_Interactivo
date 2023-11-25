@@ -10,6 +10,7 @@ export function Info() {
     <div className="content_datos">
       {stateUser.isLoggedIn ? (
         <div className="datos">
+          <h3>User Information</h3>
           <span className="dato">
             <HiUserCircle /> {stateUser.userLogged.usuario}
           </span>
