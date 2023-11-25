@@ -39,12 +39,17 @@ export function Post() {
               file: null,
             });
             alert(item.message);
+            // setPost({
+            //   titulo: "",
+            //   descripcion: "",
+            //   file: null,
+            // });
             document.querySelector("#form").reset();
           });
         }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -75,7 +80,6 @@ export function Post() {
                   ...post,
                   titulo: e.target.value,
                 });
-                console.log(post);
               }}
             />
           </div>
@@ -89,7 +93,6 @@ export function Post() {
                   ...post,
                   descripcion: e.target.value,
                 });
-                console.log(post);
               }}
             />
           </div>

@@ -17,7 +17,7 @@ function App() {
     const login = JSON.parse(localStorage.getItem("login"));
     const userData = JSON.parse(localStorage.getItem("userLogged"));
 
-    if (login?.logged && Object.keys(userData?.userInfo).length > 0) {
+    if (login.logged && Object.keys(userData.userInfo).length > 0) {
       stateUser.login();
       stateUser.setInfoUser(userData.userInfo);
     }
@@ -39,6 +39,9 @@ function App() {
           <div
             style={{
               width: "100%",
+              position: "sticky",
+              backgroundColor: "white",
+              top: "0",
             }}
           >
             <MainLayout />
