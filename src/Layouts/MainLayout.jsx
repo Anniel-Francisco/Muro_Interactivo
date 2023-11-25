@@ -5,7 +5,7 @@ export function MainLayout() {
   const location = useLocation();
 
   return (
-    <div className="layout" data-aos="fade-down">
+    <div className="layout animate__animated  animate__fadeInDown">
       <div>
         <h1>
           {location.pathname == "/"

@@ -8,7 +8,7 @@ import "../assets/styles/sidebar.css";
 import { Link } from "react-router-dom";
 export function Sidebar() {
   return (
-    <div className="sidebar" data-aos="fade-right">
+    <div className="sidebar animate__animated animate__fadeInLeft">
       <Link to="/" className="sidebar_item">
         <HiOutlineSquares2X2 className="icono" />
         <span>Discover</span>
