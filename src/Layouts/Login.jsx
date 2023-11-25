@@ -42,7 +42,7 @@ export function Login() {
             stateUser.login();
             stateUser.setInfoUser(item.data);
             closeModal();
-            document.getElementById("form").reset();
+            setUser({ correo: "", clave: "" });
           }
         });
       }

@@ -2,12 +2,13 @@
 
 .modal-login {
           position: absolute;
+          height: 100vh;
           top: 0;
           left: 0;
+          width: 100%;
           display: flex;
-          width: 80%;
           align-items: center;
-          height: 95vh;
+          height: 100vh;
           
         }
         .header_modal{
