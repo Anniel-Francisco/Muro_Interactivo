@@ -7,8 +7,9 @@ npm install
 ```bash
 npm run dev
 ```
-
 Anniel Francisco Reyes Javier | 2022-0147
+
+Sevidor: https://github.com/Anniel-Francisco/Servidor_Muro_Interactivo.git  
 
 Aqui se muestran las publicaciones
 ![Publicaciones](Discover.png)
