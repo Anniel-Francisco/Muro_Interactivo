@@ -24,6 +24,7 @@ export function Post() {
       setUsuario(JSON.stringify(stateUser.userLogged));
     }
   }, [stateUser.userLogged]);
+  //
   const addFile = (file) => {
     const url = URL.createObjectURL(file);
     setFileUrl(url);
