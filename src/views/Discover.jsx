@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { HiUserCircle } from "react-icons/hi2";
 import PublicacionAPI from "../api/PublicacionAPI";
 import "../assets/styles/discover.css";
 export function Discover() {
@@ -28,7 +29,13 @@ export function Discover() {
           data.map((item, index) => {
             return (
               <div key={index} className="publicacion">
-                <h3>{item.titulo}</h3>
+                <h3 className="user_title">
+                  <span>{item.titulo}</span>
+                  <span style={{ display: "flex", alignItems: "center" }}>
+                    <HiUserCircle style={{ fontSize: "22px" }} />{" "}
+                    {item.usuario.usuario}
+                  </span>
+                </h3>
                 <img src={item.file} alt="publicacion" />
                 <div className="descripcion">
                   <span>{item.descripcion}</span>

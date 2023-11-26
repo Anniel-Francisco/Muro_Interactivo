@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PublicacionAPI from "../api/PublicacionAPI";
 import { useContext } from "react";
 import { PuffLoader } from "react-spinners";
@@ -14,10 +14,21 @@ export function Post() {
     titulo: "",
     descripcion: "",
     file: null,
+    usuario: null,
   });
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [fileUrl, setFileUrl] = useState(null);
+  const [usuario, setUsuario] = useState(null);
+
+  //
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("userLogged"));
+    if (userData != null || userData != undefined) {
+      setUsuario(JSON.stringify(userData));
+    }
+  }, []);
+  //
   const addFile = (file) => {
     const url = URL.createObjectURL(file);
     setFileUrl(url);
@@ -39,13 +50,14 @@ export function Post() {
           formData.append("titulo", post.titulo);
           formData.append("descripcion", post.descripcion);
           formData.append("file", post.file);
-
+          formData.append("usuario", usuario);
           setLoading(true);
           await PublicacionAPI.crearPublicacion(formData).then((item) => {
             setPost({
               titulo: "",
               descripcion: "",
               file: null,
+              usuario: null,
             });
             setMessage(item.message);
             setFileUrl(null);

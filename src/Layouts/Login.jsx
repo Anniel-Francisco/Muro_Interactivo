@@ -63,7 +63,9 @@ export function Login() {
       ) : (
         <div style={{ display: "flex", alignItems: "center" }}>
           <HiUserCircle style={{ fontSize: "30px" }} />
-          <span>{stateUser.userLogged.usuario}</span>
+          <span style={{ textTransform: "capitalize" }}>
+            {stateUser.userLogged.usuario}
+          </span>
           <button
             type="button"
             onClick={() => {
