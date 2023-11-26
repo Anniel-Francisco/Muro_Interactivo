@@ -103,7 +103,7 @@ export function Post() {
             />
 
             <label htmlFor="imagen" className="custom-file-input">
-              Choose File
+              Choose Image
             </label>
           </div>
           {fileUrl != null ? (
