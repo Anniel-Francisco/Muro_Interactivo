@@ -23,6 +23,7 @@ export function Login() {
   };
   //
   const closeModal = () => {
+    setUser({ correo: "", clave: "" });
     const modal = document.getElementById("modal");
     modal.classList.add("animate__zoomOut");
     setTimeout(() => {

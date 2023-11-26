@@ -17,12 +17,17 @@ export function Post() {
   });
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [fileUrl, setFileUrl] = useState(null);
   const addFile = (file) => {
+    const url = URL.createObjectURL(file);
+    setFileUrl(url);
+    console.log(file);
     setPost({
       ...post,
       file: file,
     });
   };
+
   const crearPublicacion = async () => {
     try {
       if (!stateUser.isLoggedIn) {
@@ -37,13 +42,14 @@ export function Post() {
           formData.append("file", post.file);
 
           setLoading(true);
-          await PublicacionAPI.crearPublicacion(formData).then(() => {
+          await PublicacionAPI.crearPublicacion(formData).then((item) => {
             setPost({
               titulo: "",
               descripcion: "",
               file: null,
             });
-            setMessage("Publicación Exitosa!");
+            setMessage(item.message);
+            setFileUrl(null);
             document.querySelector("#form").reset();
           });
 
@@ -84,16 +90,42 @@ export function Post() {
           ""
         )}
         <div>
-          <div>
+          <div style={{ marginBottom: "10px" }}>
             <input
               type="file"
               id="imagen"
               className="inputfile"
               onChange={(e) => {
+                console.log(e);
                 addFile(e.target.files[0]);
               }}
             />
+
+            <label htmlFor="imagen" className="custom-file-input">
+              Choose File
+            </label>
           </div>
+          {fileUrl != null ? (
+            <div
+              style={{
+                paddingTop: "10px",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <img
+                src={fileUrl}
+                alt="file"
+                style={{
+                  borderRadius: "8px",
+                  border: "2px solid black",
+                  maxWidth: "50%",
+                }}
+              />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="fields">
           <div>

@@ -4,7 +4,6 @@
 }
 .form {
           display: flex;
-          position: relative;
           flex-direction: column;
           padding: 20px;
           margin-top: 15px;
@@ -17,6 +16,18 @@
           padding: 10px;
 }
 
+.inputfile {
+          display: none; 
+          margin-bottom: 10px;
+        }
+.custom-file-input {
+  background-color: black; 
+  color: white; 
+  padding: 10px;
+  cursor: pointer; 
+  border: none; 
+  border-radius: 5px;
+}
 .fields input[type="text"]{
           /* background-color: #e4e4e4 !important; */
           margin-top: 10px;
@@ -66,8 +77,8 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 90%;
-          height: 50vh;
+          width: 70%;
+          height: 80vh;
         
 }
 
