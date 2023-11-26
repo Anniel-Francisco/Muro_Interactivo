@@ -1,7 +1,9 @@
 import { useState } from "react";
 import PublicacionAPI from "../api/PublicacionAPI";
 import { useContext } from "react";
+import { PuffLoader } from "react-spinners";
 import { AuthContext } from "../context/AuthContext";
+import { FaCheckCircle } from "react-icons/fa";
 import "../assets/styles/post.css";
 export function Post() {
   //VARIABLE GLOBAL
@@ -13,7 +15,8 @@ export function Post() {
     descripcion: "",
     file: null,
   });
-
+  const [message, setMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const addFile = (file) => {
     setPost({
       ...post,
@@ -32,20 +35,22 @@ export function Post() {
           formData.append("titulo", post.titulo);
           formData.append("descripcion", post.descripcion);
           formData.append("file", post.file);
-          await PublicacionAPI.crearPublicacion(formData).then((item) => {
+
+          setLoading(true);
+          await PublicacionAPI.crearPublicacion(formData).then(() => {
             setPost({
               titulo: "",
               descripcion: "",
               file: null,
             });
-            alert(item.message);
-            // setPost({
-            //   titulo: "",
-            //   descripcion: "",
-            //   file: null,
-            // });
+            setMessage("Publicación Exitosa!");
             document.querySelector("#form").reset();
           });
+
+          setLoading(false);
+          setTimeout(() => {
+            setMessage(null);
+          }, 3000);
         }
       }
     } catch (error) {
@@ -56,6 +61,28 @@ export function Post() {
   return (
     <div>
       <form id="form" className="form">
+        {loading ? (
+          <div className="loading">
+            <div>
+              <PuffLoader
+                color="black"
+                loading={loading}
+                size={100}
+                speedMultiplier={2}
+              />
+              <h3>Loading</h3>
+            </div>
+          </div>
+        ) : message != null ? (
+          <div className="loading">
+            <div>
+              <FaCheckCircle style={{ fontSize: "30px" }} />
+              <h2>{message}</h2>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
         <div>
           <div>
             <input

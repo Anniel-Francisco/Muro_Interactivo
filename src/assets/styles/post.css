@@ -4,6 +4,7 @@
 }
 .form {
           display: flex;
+          position: relative;
           flex-direction: column;
           padding: 20px;
           margin-top: 15px;
@@ -60,4 +61,28 @@
          }
 
 
-    
+    .loading{
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 90%;
+          height: 50vh;
+        
+}
+
+.loading div{
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center; 
+          box-shadow:  0 0 10px -1px  black;
+          width: 300px;
+          height: 200px;
+          background-color: white;
+              border-radius: 15px;
+
+    }
+    .loading h3{
+          text-align: center;
+    }
