@@ -24,17 +24,30 @@ export function Discover() {
   return (
     <div>
       <div className="publicaciones">
-        {data.map((item, index) => {
-          return (
-            <div key={index} className="publicacion">
-              <h3>{item.titulo}</h3>
-              <img src={item.file} alt="publicacion" />
-              <div className="descripcion">
-                <span>{item.descripcion}</span>
+        {data.length > 0 ? (
+          data.map((item, index) => {
+            return (
+              <div key={index} className="publicacion">
+                <h3>{item.titulo}</h3>
+                <img src={item.file} alt="publicacion" />
+                <div className="descripcion">
+                  <span>{item.descripcion}</span>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        ) : (
+          <h2
+            style={{
+              backgroundColor: "black",
+              color: "white",
+              padding: "5px",
+              borderRadius: "5px",
+            }}
+          >
+            No hay publicaciones disponibles
+          </h2>
+        )}
       </div>
     </div>
   );
