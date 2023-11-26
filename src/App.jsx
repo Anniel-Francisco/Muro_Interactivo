@@ -16,10 +16,11 @@ function App() {
   useEffect(() => {
     const login = JSON.parse(localStorage.getItem("login"));
     const userData = JSON.parse(localStorage.getItem("userLogged"));
-
-    if (login.logged && Object.keys(userData.userInfo).length > 0) {
-      stateUser.login();
-      stateUser.setInfoUser(userData.userInfo);
+    if (login != null) {
+      if (login.logged && Object.keys(userData.userInfo).length > 0) {
+        stateUser.login();
+        stateUser.setInfoUser(userData.userInfo);
+      }
     }
   }, []);
   return (
