@@ -12,7 +12,7 @@ Anniel Francisco Reyes Javier | 2022-0147
 Credenciales de Prueba:
 Correo: rperera@itla.edu.do Contraseña:123456
 
-Sevidor: https://github.com/Anniel-Francisco/Servidor_Muro_Interactivo.git  
+Sevidor con Firebase: https://github.com/Anniel-Francisco/Servidor_Muro_Interactivo.git  
 
 Aqui se muestran las publicaciones
 ![Publicaciones](Discover.png)
