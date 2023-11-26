@@ -8,7 +8,7 @@ npm install
 npm run dev
 ```
 
-Anniel Francisco Reyes Javier
+Anniel Francisco Reyes Javier | 2022-0147
 
 Aqui se muestran las publicaciones
 ![Publicaciones](Discover.png)
