@@ -19,6 +19,13 @@ export function SignUp() {
   };
 
   const closeModal = () => {
+    setNuevoUsuario({
+      nombre: "",
+      apellido: "",
+      correo: "",
+      clave: "",
+      usuario: "",
+    });
     const modal = document.getElementById("modal");
     modal.classList.add("animate__zoomOut");
     setTimeout(() => {
