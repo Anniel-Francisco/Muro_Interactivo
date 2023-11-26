@@ -1,5 +1,4 @@
 .fields input{
-          /* width: 0; */
           border: 0;
 }
 .form {
@@ -77,8 +76,8 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 70%;
-          height: 100vh;
+          width: 90%;
+          height: 100%;
         
 }
 

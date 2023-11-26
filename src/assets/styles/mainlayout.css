@@ -1,11 +1,12 @@
 .layout{
           display: flex;
+          z-index: 2000;
           align-items: center;
           height: 60px;
           padding: 0 10px 0 10px;
           border-bottom: 1px solid #b6b5b5;
           justify-content: space-between;
-         
+     
 }
 
 .layout button{

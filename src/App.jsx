@@ -25,7 +25,12 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
         <div>
           <Sidebar />
         </div>
@@ -41,6 +46,7 @@ function App() {
             style={{
               width: "100%",
               position: "sticky",
+              zIndex: "1000",
               backgroundColor: "white",
               top: "0",
             }}

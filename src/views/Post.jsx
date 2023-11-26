@@ -66,7 +66,7 @@ export function Post() {
 
   return (
     <div>
-      <form id="form" className="form">
+      <form id="form" className="form" style={{ position: "relative" }}>
         {loading ? (
           <div className="loading">
             <div>
