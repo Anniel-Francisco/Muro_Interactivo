@@ -21,7 +21,6 @@ export function Post() {
   const addFile = (file) => {
     const url = URL.createObjectURL(file);
     setFileUrl(url);
-    console.log(file);
     setPost({
       ...post,
       file: file,
@@ -97,7 +96,6 @@ export function Post() {
               className="inputfile"
               accept="image/*"
               onChange={(e) => {
-                console.log(e);
                 addFile(e.target.files[0]);
               }}
             />
