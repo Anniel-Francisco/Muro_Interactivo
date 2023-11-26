@@ -95,6 +95,7 @@ export function Post() {
               type="file"
               id="imagen"
               className="inputfile"
+              accept="image/*"
               onChange={(e) => {
                 console.log(e);
                 addFile(e.target.files[0]);
