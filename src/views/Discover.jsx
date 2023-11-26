@@ -50,6 +50,7 @@ export function Discover() {
               color: "white",
               padding: "5px",
               borderRadius: "5px",
+              marginTop: "10px",
             }}
           >
             No hay publicaciones disponibles

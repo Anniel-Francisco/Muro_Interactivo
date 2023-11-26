@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import PublicacionAPI from "../api/PublicacionAPI";
-import { useContext } from "react";
 import { PuffLoader } from "react-spinners";
 import { AuthContext } from "../context/AuthContext";
 import { FaCheckCircle } from "react-icons/fa";
@@ -9,7 +8,6 @@ export function Post() {
   //VARIABLE GLOBAL
   const stateUser = useContext(AuthContext);
   //
-
   const [post, setPost] = useState({
     titulo: "",
     descripcion: "",
@@ -20,15 +18,12 @@ export function Post() {
   const [loading, setLoading] = useState(false);
   const [fileUrl, setFileUrl] = useState(null);
   const [usuario, setUsuario] = useState(null);
-
   //
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("userLogged"));
-    if (userData != null || userData != undefined) {
-      setUsuario(JSON.stringify(userData));
+    if (Object.keys(stateUser.userLogged).length > 0) {
+      setUsuario(JSON.stringify(stateUser.userLogged));
     }
-  }, []);
-  //
+  }, [stateUser.userLogged]);
   const addFile = (file) => {
     const url = URL.createObjectURL(file);
     setFileUrl(url);
@@ -61,6 +56,7 @@ export function Post() {
             });
             setMessage(item.message);
             setFileUrl(null);
+            setUsuario(null);
             document.querySelector("#form").reset();
           });
 
