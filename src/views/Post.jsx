@@ -20,9 +20,9 @@ export function Post() {
   const [usuario, setUsuario] = useState(null);
   //
   useEffect(() => {
-    if (Object.keys(stateUser.userLogged).length > 0) {
-      setUsuario(JSON.stringify(stateUser.userLogged));
-    }
+    // if (Object.keys(stateUser.userLogged).length > 0) {
+    setUsuario(JSON.stringify(stateUser.userLogged));
+    // }
   }, [stateUser.userLogged]);
   //
   const addFile = (file) => {
@@ -57,14 +57,13 @@ export function Post() {
             });
             setMessage(item.message);
             setFileUrl(null);
-            setUsuario(null);
             document.querySelector("#form").reset();
           });
 
           setLoading(false);
           setTimeout(() => {
             setMessage(null);
-          }, 3000);
+          }, 2000);
         }
       }
     } catch (error) {
