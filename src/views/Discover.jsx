@@ -4,15 +4,15 @@ import PublicacionAPI from "../api/PublicacionAPI";
 import "../assets/styles/discover.css";
 export function Discover() {
   const [data, setData] = useState([]);
-
+  const [message, setMessage] = useState(null);
   const obtenerPublicaciones = async () => {
     try {
       const response = await PublicacionAPI.obtenerPublicaciones();
-
       if (response.length > 0) {
         setData([...response]);
       } else {
         console.warn("API response is empty");
+        setMessage("No hay publicaciones disponibles");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -24,7 +24,7 @@ export function Discover() {
 
   return (
     <div>
-      <div className="publicaciones">
+      <div className="publicaciones animate__animated animate__fadeInUp">
         {data.length > 0 ? (
           data.map((item, index) => {
             return (
@@ -53,7 +53,7 @@ export function Discover() {
               marginTop: "10px",
             }}
           >
-            No hay publicaciones disponibles
+            {message}
           </h2>
         )}
       </div>
