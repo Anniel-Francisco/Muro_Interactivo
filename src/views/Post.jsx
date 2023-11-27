@@ -20,9 +20,7 @@ export function Post() {
   const [usuario, setUsuario] = useState(null);
   //
   useEffect(() => {
-    // if (Object.keys(stateUser.userLogged).length > 0) {
     setUsuario(JSON.stringify(stateUser.userLogged));
-    // }
   }, [stateUser.userLogged]);
   //
   const addFile = (file) => {
