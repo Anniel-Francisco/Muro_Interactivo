@@ -84,7 +84,7 @@ export function Post() {
               <h3>Loading</h3>
             </div>
           </div>
-        ) : message == null ? (
+        ) : message != null ? (
           <div className="loading">
             <div>
               <FaCheckCircle style={{ fontSize: "35px" }} />
